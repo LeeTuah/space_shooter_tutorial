@@ -29,7 +29,7 @@ func process_input(delta: float) -> void:
 		var bullet_instance = bullet_scene.instantiate();
 
 		bullet_instance.position = Vector2(position.x, position.y - 30);
-		get_parent().get_node("bullets").add_child(bullet_instance)
+		get_parent().get_node("bullets").add_child(bullet_instance);
 
 	current_bullet_cooldown += delta;
 
@@ -39,3 +39,7 @@ func check_stuff() -> void:
 func _process(delta: float) -> void:
 	process_input(delta);
 	check_stuff();
+
+func _on_player_area_area_entered(area: Area2D) -> void:
+	if (area.name == "enemy_bullet_area" and (not global.is_game_over)):
+		global.is_game_over = true;

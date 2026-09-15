@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cbyruuhlmdwm3" path="res://entities/player/player.gd" id="1_abrql"]
 [ext_resource type="AudioStream" uid="uid://c1adls5wy1gqk" path="res://assets/player_shooting.mp3" id="3_sglur"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sglur"]
+size = Vector2(80, 20)
+
 [node name="player" type="Node2D" unique_id=470446911]
 script = ExtResource("1_abrql")
 
@@ -12,3 +15,18 @@ texture = ExtResource("1_4flbx")
 
 [node name="shooting_sound" type="AudioStreamPlayer2D" parent="." unique_id=2045810967]
 stream = ExtResource("3_sglur")
+
+[node name="player_area" type="Area2D" parent="." unique_id=1693198878]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_area" unique_id=106896059]
+position = Vector2(2.3841858e-07, 0.30612227)
+rotation = 3.1415927
+scale = Vector2(1.015625, 1.0204082)
+polygon = PackedVector2Array(0, 34, 40, -15, -40, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_area" unique_id=588158129]
+position = Vector2(0, 25)
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_sglur")
+
+[connection signal="area_entered" from="player_area" to="." method="_on_player_area_area_entered"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dlxdhf8qnonig" path="res://entities/enemies/shooter_enemy.gd" id="1_7cnrs"]
 [ext_resource type="Texture2D" uid="uid://c53sym74402r7" path="res://assets/pixel_ship_yellow.png" id="1_jpwgu"]
+[ext_resource type="AudioStream" uid="uid://c1adls5wy1gqk" path="res://assets/player_shooting.mp3" id="3_a2ety"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ety"]
 size = Vector2(80, 20)
@@ -21,5 +22,8 @@ polygon = PackedVector2Array(0, 34, 40, -15, -40, -15)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1290161953]
 position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_a2ety")
+
+[node name="shooting_sound" type="AudioStreamPlayer2D" parent="." unique_id=1251138661]
+stream = ExtResource("3_a2ety")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

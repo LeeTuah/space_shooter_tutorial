@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ikvism80pgs6"]
+
+[ext_resource type="Script" uid="uid://dauxdoedwx8ax" path="res://entities/bullets/enemy_bullet.gd" id="1_a2rgv"]
+[ext_resource type="Texture2D" uid="uid://djg6p7sui16gf" path="res://assets/pixel_laser_red.png" id="1_tirjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrgbc"]
+size = Vector2(6, 16)
+
+[node name="enemy_bullet" type="Node2D" unique_id=585677757]
+script = ExtResource("1_a2rgv")
+
+[node name="enemy_bullet_sprite" type="Sprite2D" parent="." unique_id=311190639]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_tirjj")
+
+[node name="enemy_bullet_area" type="Area2D" parent="." unique_id=252632744]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_bullet_area" unique_id=971399158]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_nrgbc")

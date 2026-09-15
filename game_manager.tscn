@@ -40,6 +40,8 @@ scale = Vector2(0.45, 0.45)
 
 [node name="bullets" type="Node" parent="." unique_id=346859962]
 
+[node name="enemy_bullets" type="Node" parent="." unique_id=2100884787]
+
 [node name="enemies" type="Node" parent="." unique_id=651727101]
 
 [node name="enemy_spawner" parent="." unique_id=364070039 instance=ExtResource("4_d5upp")]
