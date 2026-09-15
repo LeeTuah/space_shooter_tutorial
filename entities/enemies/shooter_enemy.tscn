@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bh5hmj1gw3uk0"]
+
+[ext_resource type="Script" uid="uid://dlxdhf8qnonig" path="res://entities/enemies/shooter_enemy.gd" id="1_7cnrs"]
+[ext_resource type="Texture2D" uid="uid://c53sym74402r7" path="res://assets/pixel_ship_yellow.png" id="1_jpwgu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ety"]
+size = Vector2(80, 20)
+
+[node name="shooter_enemy" type="Area2D" unique_id=555760468]
+script = ExtResource("1_7cnrs")
+
+[node name="shooter_enemy_sprite" type="Sprite2D" parent="." unique_id=1371946668]
+rotation = 3.1415927
+texture = ExtResource("1_jpwgu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=743872023]
+position = Vector2(2.3841858e-07, 0.30612227)
+scale = Vector2(1.015625, 1.0204082)
+polygon = PackedVector2Array(0, 34, 40, -15, -40, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1290161953]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_a2ety")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

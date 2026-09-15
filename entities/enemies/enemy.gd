@@ -18,16 +18,8 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if (area.name == "bullet_area" and (not global.is_game_over)):
-		global.play_explosion_sound = true;
 		area.get_parent().queue_free();
 		queue_free();
 
-		global.score += 1;
-		if (global.score % 5 == 0):
-			global.enemy_speed_multiplier += 0.2;
-		
-		elif (global.score % 7 == 0):
-			global.timer.wait_time -= 0.15;
-
-		elif (global.score % 10 == 0):
-			global.player_speed_multiplier += 0.3;
+		global.on_enemy_death();
+		global.last_destroyed_ship = position;

@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var shooting_sound = $shooting_sound;
-@onready var explosion_sound = $explosion_sound;
 
 var bullet_scene = preload("res://entities/bullets/bullet.tscn");
 const bullet_cooldown = 0.4;
@@ -23,7 +22,7 @@ func process_input(delta: float) -> void:
 	if (Input.is_action_pressed("player_right")):
 		position += Vector2.RIGHT * linear_speed * global.player_speed_multiplier * delta;
 
-	if (Input.is_action_pressed("player_shoot") and current_bullet_cooldown >= bullet_cooldown):
+	if (Input.is_action_pressed("player_shoot") and current_bullet_cooldown >= bullet_cooldown and (not global.is_game_over)):
 		shooting_sound.play();
 
 		current_bullet_cooldown = 0.0;
@@ -36,10 +35,6 @@ func process_input(delta: float) -> void:
 
 func check_stuff() -> void:
 	position.x = clamp(position.x, player_width / 2.0, 400 - player_width / 2.0);
-
-	if (global.play_explosion_sound):
-		explosion_sound.play();
-		global.play_explosion_sound = false;
 
 func _process(delta: float) -> void:
 	process_input(delta);

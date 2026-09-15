@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dup780ij2j3ma"]
+
+[ext_resource type="Script" uid="uid://bl4k0ip0orjwp" path="res://entities/labels/labels.gd" id="1_cxc2g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_01hqx"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3lo5"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrgbc"]
+font_size = 50
+font_color = Color(0.8992166, 0.29854068, 0.23189431, 1)
+
+[node name="labels" type="Node2D" unique_id=894951538]
+script = ExtResource("1_cxc2g")
+
+[node name="score_label" type="Label" parent="." unique_id=879241744]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 31.0
+label_settings = SubResource("LabelSettings_01hqx")
+
+[node name="waves_label" type="Label" parent="." unique_id=613667401]
+offset_left = 296.0
+offset_top = 8.0
+offset_right = 389.0
+offset_bottom = 36.0
+label_settings = SubResource("LabelSettings_p3lo5")
+
+[node name="game_over_label" type="Label" parent="." unique_id=1352041497]
+offset_left = 69.0
+offset_top = 266.0
+offset_right = 340.0
+offset_bottom = 335.0
+label_settings = SubResource("LabelSettings_nrgbc")
+horizontal_alignment = 1
+vertical_alignment = 1

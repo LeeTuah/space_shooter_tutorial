@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://4tukq4c1m4a" path="res://assets/pixel_ship_red.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cbyruuhlmdwm3" path="res://entities/player/player.gd" id="1_abrql"]
 [ext_resource type="AudioStream" uid="uid://c1adls5wy1gqk" path="res://assets/player_shooting.mp3" id="3_sglur"]
-[ext_resource type="AudioStream" uid="uid://v3aoeketvt1x" path="res://assets/enemy_explosion.mp3" id="4_bls4j"]
 
 [node name="player" type="Node2D" unique_id=470446911]
 script = ExtResource("1_abrql")
@@ -13,6 +12,3 @@ texture = ExtResource("1_4flbx")
 
 [node name="shooting_sound" type="AudioStreamPlayer2D" parent="." unique_id=2045810967]
 stream = ExtResource("3_sglur")
-
-[node name="explosion_sound" type="AudioStreamPlayer2D" parent="." unique_id=1322942098]
-stream = ExtResource("4_bls4j")
