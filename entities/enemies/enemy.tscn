@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://h2a5gpecjmvp"]
+
+[ext_resource type="Texture2D" uid="uid://5wegq1ry1n1o" path="res://assets/pixel_ship.png" id="1_owq46"]
+[ext_resource type="Script" uid="uid://cmefy0hmdct3" path="res://entities/enemies/enemy.gd" id="1_wqcwe"]
+[ext_resource type="Texture2D" uid="uid://cretb6sqx8f47" path="res://entities/player/thruster_frames/thruster-1.png" id="3_ipr6v"]
+[ext_resource type="Texture2D" uid="uid://ccvnkqtn86ln" path="res://entities/player/thruster_frames/thruster-2.png" id="4_gj3y3"]
+[ext_resource type="Texture2D" uid="uid://pc3ltkt6vgit" path="res://entities/player/thruster_frames/thruster-3.png" id="5_56i32"]
+[ext_resource type="Texture2D" uid="uid://gxaptm3piwqf" path="res://entities/player/thruster_frames/thruster-4.png" id="6_sb13e"]
+[ext_resource type="Texture2D" uid="uid://hitrou4lq5ut" path="res://entities/player/thruster_frames/thruster-5.png" id="7_3udgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrgbc"]
+size = Vector2(80, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vabdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ipr6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gj3y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_56i32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sb13e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3udgd")
+}],
+"loop": 1,
+"name": &"thruster",
+"speed": 16.18
+}]
+
+[node name="enemy_area" type="Area2D" unique_id=1101802728]
+script = ExtResource("1_wqcwe")
+
+[node name="enemy_sprite" type="Sprite2D" parent="." unique_id=27686004]
+rotation = -3.1415925
+texture = ExtResource("1_owq46")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=89185480]
+position = Vector2(2.3841858e-07, 0.30612227)
+scale = Vector2(1.015625, 1.0204082)
+polygon = PackedVector2Array(0, 34, 40, -15, -40, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155798328]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_nrgbc")
+
+[node name="thruster_sprite_animated" type="AnimatedSprite2D" parent="." unique_id=1427882883]
+position = Vector2(0, -75)
+rotation = 3.1415927
+scale = Vector2(0.625, 1.8122501)
+sprite_frames = SubResource("SpriteFrames_vabdn")
+animation = &"thruster"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

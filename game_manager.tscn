@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bwi3f03vnopsn"]
+
+[ext_resource type="Script" uid="uid://dq6ogpam0nleh" path="res://game_manager.gd" id="1_shwjl"]
+[ext_resource type="Texture2D" uid="uid://wb60xdym0gc3" path="res://assets/background-black.png" id="1_smx3j"]
+[ext_resource type="Texture2D" uid="uid://clxhw11bfl06r" path="res://assets/horizontal_bar_red.png" id="2_o2178"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://entities/player/player.tscn" id="3_o2178"]
+[ext_resource type="PackedScene" uid="uid://b7l5of07hkmhg" path="res://entities/enemy_spawner/enemy_spawner.tscn" id="4_d5upp"]
+[ext_resource type="PackedScene" uid="uid://tpai5sm1htxd" path="res://entities/labels/game_over_label.tscn" id="5_vk86k"]
+[ext_resource type="PackedScene" uid="uid://boeac4p3lc5im" path="res://entities/labels/score_label.tscn" id="7_eakoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrgbc"]
+size = Vector2(416, 20)
+
+[node name="game_manager" type="Node2D" unique_id=750253054]
+script = ExtResource("1_shwjl")
+
+[node name="background_sprite" type="Sprite2D" parent="." unique_id=1125132604]
+position = Vector2(200, 300.00003)
+scale = Vector2(1.04, 1.5400001)
+texture = ExtResource("1_smx3j")
+
+[node name="boundary_line_area" type="Area2D" parent="." unique_id=34141275]
+position = Vector2(192, 496.00003)
+scale = Vector2(1, 0.6)
+
+[node name="boundry_line_sprite" type="Sprite2D" parent="boundary_line_area" unique_id=1330758391]
+position = Vector2(8, -6.1035156e-05)
+scale = Vector2(3.1427443, -1.2445333)
+texture = ExtResource("2_o2178")
+
+[node name="boundry_shape" type="CollisionShape2D" parent="boundary_line_area" unique_id=262634109]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_nrgbc")
+
+[node name="player" parent="." unique_id=470446911 instance=ExtResource("3_o2178")]
+position = Vector2(192, 552)
+scale = Vector2(0.45, 0.45)
+
+[node name="bullets" type="Node" parent="." unique_id=346859962]
+
+[node name="enemies" type="Node" parent="." unique_id=651727101]
+
+[node name="enemy_spawner" parent="." unique_id=364070039 instance=ExtResource("4_d5upp")]
+
+[node name="game_over_label" parent="." unique_id=1618372737 instance=ExtResource("5_vk86k")]
+
+[node name="score_label" parent="." unique_id=430920282 instance=ExtResource("7_eakoi")]
